@@ -1,0 +1,167 @@
+/* Base CSS Styles */
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	margin: 0;
+	background-color: #fff5f5;
+	font-family: 'Arial', sans-serif;
+	overflow: hidden;
+	padding: 0 10px; /* Padding for mobile responsiveness */
+}
+
+.proposal-text {
+	color: #e91e63;
+	font-size: 2.5rem;
+	text-align: center;
+	margin-bottom: 2rem;
+	transition: all 0.3s ease;
+	position: relative;
+	z-index: 10;
+}
+
+.content-container {
+	text-align: center;
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+.buttons-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5rem;
+	margin-top: 1rem;
+	transition: all 0.3s ease;
+}
+
+.response-btn {
+	padding: 1rem 2rem;
+	font-size: 1.2rem;
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	font-weight: bold;
+	position: relative;
+	z-index: 5;
+	width: 100%; /* Full width on small screens */
+	max-width: 250px; /* Limit width for larger screens */
+}
+
+#accept-btn {
+	background-color: #4caf50;
+	color: white;
+	box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+#decline-btn {
+	background-color: #f44336;
+	color: white;
+	box-shadow: 0 4px 8px rgba(244, 67, 54, 0.3);
+}
+
+#accept-btn:hover {
+	transform: scale(1.05);
+}
+
+#calendar-container {
+	margin-top: 2rem;
+	display: none;
+}
+
+#calendar-container.visible {
+	display: block;
+	animation: fadeIn 0.5s ease;
+}
+
+#date-picker {
+	padding: 0.8rem;
+	font-size: 1rem;
+	border: 2px solid #e91e63;
+	border-radius: 8px;
+	margin: 1rem 0;
+}
+
+#confirm-date {
+	padding: 0.8rem 1.5rem;
+	background-color: #e91e63;
+	color: white;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 1rem;
+	transition: all 0.3s ease;
+}
+
+#confirm-date:hover {
+	background-color: #c2185b;
+	transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.hidden {
+	display: none !important;
+}
+
+/* GIF Container Styles */
+#gifContainer,
+#gifContainer2 {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
+	display: none; /* Hide initially */
+	max-width: 100%;
+	height: auto;
+}
+
+/* For the first GIF (use full width and height auto) */
+#gifContainer iframe {
+	width: 100%;
+	max-width: 480px; /* Keep the first GIF's max size */
+	height: auto;
+}
+
+/* For the second GIF (specific size of 263x321px) */
+#gifContainer2 iframe {
+	width: 263px; /* Set specific width */
+	height: 321px; /* Set specific height */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+	.proposal-text {
+		font-size: 2rem; /* Smaller text size for mobile */
+	}
+
+	.response-btn {
+		font-size: 1rem;
+		padding: 0.8rem 1.5rem; /* Smaller padding on mobile */
+	}
+
+	#accept-btn,
+	#decline-btn {
+		max-width: 90%; /* Full width buttons on small screens */
+	}
+
+	/* Adjust for smaller screens if needed */
+	#gifContainer iframe,
+	#gifContainer2 iframe {
+		width: 100%; /* Make GIFs responsive to screen width */
+		height: auto;
+	}
+}
