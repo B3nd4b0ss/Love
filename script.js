@@ -83,25 +83,32 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	// Confirm date selection
-	confirmDateBtn.addEventListener('click', function () {
-		if (datePicker.value) {
-			const selectedDate = new Date(datePicker.value);
-			const options = {
-				weekday: 'long',
-				year: 'numeric',
-				month: 'long',
-				day: 'numeric',
-			};
-			const formattedDate = selectedDate.toLocaleDateString(
-				'en-US',
-				options
-			);
-			proposalText.textContent = `Yay! See you on ${formattedDate}! ❤️`;
-			calendarContainer.classList.add('hidden');
-		} else {
-			alert('Please select a date first!');
-		}
-	});
+	if (datePicker.value) {
+		const selectedDate = new Date(datePicker.value);
+		const options = {
+			weekday: 'long',
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+		};
+		const formattedDate = selectedDate.toLocaleDateString('en-US', options);
+
+		proposalText.textContent = `Yay! See you on ${formattedDate}! ❤️`;
+		calendarContainer.classList.add('hidden');
+
+		// WhatsApp number (no "+" or special characters)
+		const phoneNumber = '1234567890';
+
+		// Message to send
+		const message = encodeURIComponent(
+			`Hey! Let's go on a date on ${formattedDate} 💖`
+		);
+
+		// Open WhatsApp with message
+		window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+	} else {
+		alert('Please select a date first!');
+	}
 
 	// Utility: Move button to non-overlapping and visible random position
 	function moveButtonToSafePosition(button) {
