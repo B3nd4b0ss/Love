@@ -1,65 +1,203 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="style.css" />
 		<title>Date Proposal</title>
+		<link rel="stylesheet" href="style.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
 	</head>
 	<body>
-		<h1 class="proposal-text">Will you go on a date with me?</h1>
-		<div class="content-container">
-			<!-- Calendar and options section (Initially hidden) -->
-			<div id="calendar-container" class="hidden">
-				<label for="date-picker">Pick a date:</label>
-				<input type="date" id="date-picker" />
+		<div class="confetti-container"></div>
+		<main class="proposal-container">
+			<h1 class="proposal-text">Will you go on a date with me?</h1>
 
-				<label for="food-choice">What should we eat? 🍽️</label>
-				<select id="food-choice">
-					<option value="Pizza">Pizza</option>
-					<option value="Sushi">Sushi</option>
-					<option value="Burgers">Burgers</option>
-					<option value="Pasta">Pasta</option>
-					<option value="Surprise me!">Surprise me!</option>
-					<option value="Tacos">Tacos</option>
-					<option value="Salad">Salad</option>
-					<option value="Steak">Steak</option>
-					<option value="Ice Cream">Ice Cream</option>
-				</select>
+			<div class="content-container">
+				<!-- Calendar and options section -->
+				<div id="calendar-container" class="hidden">
+					<div class="form-group">
+						<label for="date-picker"
+							><i class="far fa-calendar-alt"></i> Pick a
+							date:</label
+						>
+						<input
+							type="date"
+							id="date-picker"
+							aria-label="Select date for our date"
+						/>
+					</div>
 
-				<label for="activity-choice">What should we do? 🎉</label>
-				<select id="activity-choice">
-					<option value="Movie night">Movie night</option>
-					<option value="Walk in the park">Walk in the park</option>
-					<option value="Mini golf">Mini golf</option>
-					<option value="Spa day">Spa day</option>
-					<option value="Cuddle and chill">Cuddle and chill</option>
-					<option value="Bowling">Bowling</option>
-					<option value="Beach day">Beach day</option>
-					<option value="Go to a museum">Go to a museum</option>
-					<option value="Amusement park">Amusement park</option>
-					<option value="Go-karting">Go-karting</option>
-					<option value="Escape room">Escape room</option>
-					<option value="Netflix and Chill">Netflix and Chill &#128527;</option>
-				</select>
+					<!-- Food Dropdown -->
+					<div class="dropdown-multiselect">
+						<label
+							><i class="fas fa-utensils"></i> What should we
+							eat?</label
+						>
+						<div class="select-box">
+							<span id="food-selected">Select food</span>
+							<div class="arrow">
+								<i class="fas fa-chevron-down"></i>
+							</div>
+						</div>
+						<div id="food-options" class="checkboxes hidden">
+							<label
+								><input type="checkbox" value="Pizza" />
+								Pizza</label
+							>
+							<label
+								><input type="checkbox" value="Sushi" />
+								Sushi</label
+							>
+							<label
+								><input type="checkbox" value="Burgers" />
+								Burgers</label
+							>
+							<label
+								><input type="checkbox" value="Pasta" />
+								Pasta</label
+							>
+							<label
+								><input type="checkbox" value="Surprise me!" />
+								Surprise me!</label
+							>
+							<label
+								><input type="checkbox" value="Tacos" />
+								Tacos</label
+							>
+							<label
+								><input type="checkbox" value="Salad" />
+								Salad</label
+							>
+							<label
+								><input type="checkbox" value="Steak" />
+								Steak</label
+							>
+							<label
+								><input type="checkbox" value="Ice Cream" /> Ice
+								Cream</label
+							>
+						</div>
+					</div>
 
-				<button id="confirm-date">Confirm</button>
+					<!-- Activity Dropdown -->
+					<div class="dropdown-multiselect">
+						<label
+							><i class="fas fa-running"></i> What should we
+							do?</label
+						>
+						<div class="select-box">
+							<span id="activity-selected"
+								>Select activities</span
+							>
+							<div class="arrow">
+								<i class="fas fa-chevron-down"></i>
+							</div>
+						</div>
+						<div id="activity-options" class="checkboxes hidden">
+							<label
+								><input type="checkbox" value="Movie night" />
+								Movie night</label
+							>
+							<label
+								><input
+									type="checkbox"
+									value="Walk in the park"
+								/>
+								Walk in the park</label
+							>
+							<label
+								><input type="checkbox" value="Mini golf" />
+								Mini golf</label
+							>
+							<label
+								><input type="checkbox" value="Spa day" /> Spa
+								day</label
+							>
+							<label
+								><input
+									type="checkbox"
+									value="Cuddle and chill"
+								/>
+								Cuddle and chill</label
+							>
+							<label
+								><input type="checkbox" value="Bowling" />
+								Bowling</label
+							>
+							<label
+								><input type="checkbox" value="Beach day" />
+								Beach day</label
+							>
+							<label
+								><input
+									type="checkbox"
+									value="Go to a museum"
+								/>
+								Go to a museum</label
+							>
+							<label
+								><input
+									type="checkbox"
+									value="Amusement park"
+								/>
+								Amusement park</label
+							>
+							<label
+								><input type="checkbox" value="Go-karting" />
+								Go-karting</label
+							>
+							<label
+								><input type="checkbox" value="Escape room" />
+								Escape room</label
+							>
+							<label
+								><input
+									type="checkbox"
+									value="Netflix and Chill 😏"
+								/>
+								Netflix and Chill 😏</label
+							>
+						</div>
+					</div>
+
+					<button id="confirm-date" class="btn-primary btn">
+						<i class="far fa-paper-plane"></i> Confirm Date
+					</button>
+				</div>
+
+				<!-- Initial buttons -->
+				<div id="initial-buttons" class="buttons-container">
+					<button id="accept-btn" class="btn-primary btn">
+						<i class="fas fa-heart"></i> Yes! Absolutely! ❤️
+					</button>
+					<button id="decline-btn" class="btn-secondary btn">
+						<i class="far fa-frown"></i> No
+					</button>
+				</div>
 			</div>
+		</main>
 
-			<!-- Initial yes/no buttons -->
-			<div id="initial-buttons" class="buttons-container">
-				<button id="accept-btn" class="response-btn">
-					Yes! Absolutely! ❤️
-				</button>
-				<button id="decline-btn" class="response-btn">No</button>
-			</div>
+		<!-- GIF Containers -->
+		<div id="gifContainer" class="gif-container hidden"></div>
+		<div id="gifContainer2" class="gif-container hidden"></div>
+
+		<!-- Heart Cursor -->
+		<div id="heart-cursor" class="heart-cursor hidden">
+			<svg viewBox="0 0 24 24">
+				<path
+					fill="#e91e63"
+					d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+				/>
+			</svg>
 		</div>
-
-		<!-- GIF Containers (Initially hidden) -->
-		<div id="gifContainer"></div>
-		<div id="gifContainer2"></div>
-
-		<!-- External scripts -->
 		<script src="config.js"></script>
 		<script src="script.js"></script>
 	</body>

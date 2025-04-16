@@ -1,181 +1,264 @@
-/* Base CSS Styles */
+/* ===== Romantic Pink Theme ===== */
+:root {
+	--pink-light: #fff0f6;
+	--pink-soft: #ffdeeb;
+	--pink-medium: #ff85b3;
+	--pink-dark: #f75990;
+	--pink-darker: #e64980;
+	--text-dark: #2b2d42;
+	--text-light: #5c5f7a;
+	--white: #ffffff;
+	--shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+	--transition: all 0.3s ease;
+}
+
+/* ===== Base Styles ===== */
 body {
+	font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+		Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+		sans-serif;
+	background-color: var(--pink-light);
+	color: var(--text-dark);
+	min-height: 100vh;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	min-height: 100vh;
-	margin: 0;
-	background-color: #fff5f5;
-	font-family: 'Arial', sans-serif;
+	padding: 1rem;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* ===== Love Letter Container ===== */
+.proposal-container {
+	background-color: var(--white);
+	border-radius: 16px;
+	box-shadow: var(--shadow-soft);
+	padding: 2.5rem;
+	max-width: 600px;
+	width: 100%;
+	text-align: center;
+	position: relative;
 	overflow: hidden;
-	padding: 0 10px; /* Padding for mobile responsiveness */
+	border: 1px solid var(--pink-soft);
+}
+
+.proposal-container::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 8px;
+	background: linear-gradient(
+		90deg,
+		var(--pink-medium),
+		var(--pink-dark),
+		var(--pink-medium)
+	);
 }
 
 .proposal-text {
-	color: #e91e63;
-	font-size: 2.5rem;
-	text-align: center;
+	font-size: 2rem;
+	font-weight: 700;
+	color: var(--pink-darker);
 	margin-bottom: 2rem;
-	transition: all 0.3s ease;
+	line-height: 1.3;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 	position: relative;
-	z-index: 10;
+	display: inline-block;
 }
 
-.content-container {
-	text-align: center;
-	transition: all 0.3s ease;
-	position: relative;
+.proposal-text::after {
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100px;
+	height: 3px;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		var(--pink-medium),
+		transparent
+	);
 }
 
-.buttons-container {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 1.5rem;
-	margin-top: 1rem;
-	transition: all 0.3s ease;
-}
-
-.response-btn {
-	padding: 1rem 2rem;
-	font-size: 1.2rem;
+/* ===== Romantic Buttons ===== */
+.btn {
 	border: none;
 	border-radius: 50px;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	font-weight: bold;
-	position: relative;
-	z-index: 5;
-	width: 100%; /* Full width on small screens */
-	max-width: 250px; /* Limit width for larger screens */
-}
-
-#accept-btn {
-	background-color: #4caf50;
-	color: white;
-	box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
-}
-
-#decline-btn {
-	background-color: #f44336;
-	color: white;
-	box-shadow: 0 4px 8px rgba(244, 67, 54, 0.3);
-}
-
-#accept-btn:hover {
-	transform: scale(1.05);
-}
-
-#calendar-container {
-	margin-top: 2rem;
-	display: none;
-}
-
-#calendar-container.visible {
-	display: block;
-	animation: fadeIn 0.5s ease;
-}
-
-#date-picker {
-	padding: 0.8rem;
-	font-size: 1rem;
-	border: 2px solid #e91e63;
-	border-radius: 8px;
-	margin: 1rem 0;
-}
-
-#confirm-date {
-	padding: 0.8rem 1.5rem;
-	background-color: #e91e63;
-	color: white;
-	border: none;
-	border-radius: 8px;
-	cursor: pointer;
-	font-size: 1rem;
-	transition: all 0.3s ease;
-}
-
-#confirm-date:hover {
-	background-color: #c2185b;
-	transform: scale(1.05);
-}
-
-/* Dropdown Styling */
-select {
-	width: 100%;
-	padding: 0.8rem;
-	font-size: 1rem;
-	border: 2px solid #e91e63;
-	border-radius: 8px;
-	background-color: #fafafa;
-	margin: 1rem 0;
-	cursor: pointer;
-	transition: all 0.3s ease;
-}
-
-select:focus {
-	outline: none;
-	border-color: #e91e63;
-	box-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
-}
-
-/* Style for the activity selection and food options */
-label {
+	padding: 1rem 2.5rem;
 	font-size: 1.1rem;
-	color: #333;
-	display: block;
-	text-align: center;
+	font-weight: 600;
+	cursor: pointer;
+	transition: var(--transition);
+	position: relative;
+	overflow: hidden;
+	margin: 0.5rem;
+	min-width: 220px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-	.proposal-text {
-		font-size: 2rem; /* Smaller text size for mobile */
-	}
-
-	.response-btn {
-		font-size: 1rem;
-		padding: 0.8rem 1.5rem; /* Smaller padding on mobile */
-	}
-
-	#accept-btn,
-	#decline-btn {
-		max-width: 90%; /* Full width buttons on small screens */
-	}
-
-	/* Adjust for smaller screens if needed */
-	#gifContainer iframe,
-	#gifContainer2 iframe {
-		width: 100%; /* Make GIFs responsive to screen width */
-		height: auto;
-	}
+.btn-primary {
+	background: linear-gradient(135deg, var(--pink-medium), var(--pink-darker));
+	color: white;
 }
 
-/* GIF Container Styles */
-#gifContainer,
-#gifContainer2 {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 1000;
-	display: none; /* Hide initially */
-	max-width: 100%;
-	height: auto;
+.btn-secondary {
+	background: white;
+	color: var(--pink-darker);
+	border: 2px solid var(--pink-soft);
 }
 
-/* For the first GIF (use full width and height auto) */
-#gifContainer iframe {
+.btn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+	transform: translateY(-1px);
+}
+
+.btn i {
+	margin-right: 0.5rem;
+	font-size: 1.2em;
+}
+
+/* ===== Form Elements ===== */
+.form-group {
+	margin-bottom: 1.5rem;
 	width: 100%;
-	max-width: 480px; /* Keep the first GIF's max size */
-	height: auto;
 }
 
-/* For the second GIF (specific size of 263x321px) */
-#gifContainer2 iframe {
-	width: 263px; /* Set specific width */
-	height: 321px; /* Set specific height */
+label {
+	display: block;
+	margin-bottom: 0.75rem;
+	color: var(--pink-darker);
+	font-weight: 500;
+	text-align: left;
+}
+
+input[type='date'] {
+	width: calc(100% - 24px); /* Account for padding and border */
+	padding: 1rem;
+	border: 2px solid var(--pink-soft);
+	border-radius: 8px;
+	font-size: 1rem;
+	color: var(--text-dark);
+	transition: var(--transition);
+	box-sizing: border-box;
+}
+
+input[type='date']:focus {
+	outline: none;
+	border-color: var(--pink-medium);
+	box-shadow: 0 0 0 3px rgba(255, 133, 179, 0.2);
+}
+
+/* ===== Dropdowns ===== */
+.dropdown-multiselect {
+	position: relative;
+	margin: 1.5rem 0;
+	width: 100%;
+}
+
+.select-box {
+	border: 2px solid var(--pink-soft);
+	border-radius: 8px;
+	padding: 1rem;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	transition: var(--transition);
+	background-color: white;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.select-box:hover {
+	border-color: var(--pink-medium);
+}
+
+.checkboxes {
+	border: 2px solid var(--pink-soft);
+	border-top: none;
+	background-color: white;
+	border-radius: 0 0 8px 8px;
+	max-height: 0;
+	overflow: hidden;
+	transition: var(--transition);
+	position: absolute;
+	width: calc(100% - 4px); /* Account for border */
+	left: 0;
+	z-index: 10;
+	box-sizing: border-box;
+}
+
+.checkboxes.visible {
+	max-height: 300px;
+	padding: 0.5rem;
+}
+
+.checkbox-container {
+	display: flex;
+	align-items: center;
+	padding: 0.5rem;
+}
+
+.checkbox-container input {
+	margin-right: 0.75rem;
+}
+
+/* ===== Heart Animations ===== */
+.heart-cursor {
+	position: fixed;
+	width: 32px;
+	height: 32px;
+	pointer-events: none;
+	z-index: 9999;
+	display: none;
+	animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+	0%,
+	100% {
+		transform: translate(-50%, -50%) scale(1);
+	}
+	50% {
+		transform: translate(-50%, -60%) scale(1.1);
+	}
+}
+
+/* ===== Confetti ===== */
+.confetti {
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	background-color: var(--pink-medium);
+	border-radius: 50%;
+	animation: fall linear forwards;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 600px) {
+	.proposal-container {
+		padding: 1.5rem;
+	}
+
+	.proposal-text {
+		font-size: 1.75rem;
+	}
+
+	.btn {
+		width: 100%;
+		margin: 0.5rem 0;
+	}
 }
 
 @keyframes fadeIn {
