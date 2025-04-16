@@ -95,10 +95,10 @@ document.addEventListener('DOMContentLoaded', function () {
 			const formattedDate = `${day}.${month}.${year}`;
 
 			// WhatsApp message
-			const message = `Hey my love, I picked this date for us: ${formattedDate} 💖\n\nLet's eat: ${food} 🍽️\nAnd do: ${activity} 🎉`;
-			const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-				message
-			)}`;
+			const message = `Hey my love, I picked this date for us: ${formattedDate} \nLet's eat: ${food} \nAnd do: ${activity} `;
+			const encodedMessage = encodeURIComponent(message);
+			const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}
+			`;
 
 			window.location.href = whatsappUrl;
 
