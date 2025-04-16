@@ -70,6 +70,16 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
+	acceptBtn.addEventListener('click', function () {
+		hidePreviousGif(); // Hide sad GIF if it's showing
+		showSecondGif(); // Show the happy GIF
+
+		calendarContainer.classList.remove('hidden');
+		calendarContainer.classList.add('visible');
+		initialButtons.classList.add('hidden');
+		proposalText.textContent = "I'm so happy! ❤️";
+	});
+
 	confirmDateBtn.addEventListener('click', function () {
 		if (datePicker.value) {
 			const selectedDate = new Date(datePicker.value);
