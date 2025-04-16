@@ -70,45 +70,34 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
-	// Accept button shows calendar
-	acceptBtn.addEventListener('click', function () {
-		// Hide the previous GIF and show the new one
-		hidePreviousGif();
-		showSecondGif(); // Show the "Yes" GIF
+	confirmDateBtn.addEventListener('click', function () {
+		if (datePicker.value) {
+			const selectedDate = new Date(datePicker.value);
 
-		calendarContainer.classList.remove('hidden');
-		calendarContainer.classList.add('visible');
-		initialButtons.classList.add('hidden');
-		proposalText.textContent = "I'm so happy! ❤️";
+			// Format as DD.MM.YYYY
+			const day = selectedDate.getDate().toString().padStart(2, '0');
+			const month = (selectedDate.getMonth() + 1)
+				.toString()
+				.padStart(2, '0');
+			const year = selectedDate.getFullYear();
+			const formattedDate = `${day}.${month}.${year}`;
+
+			// WhatsApp message
+			const message = `Hey my love, I picked this date for us: ${formattedDate}`;
+			const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+				message
+			)}`;
+
+			// Redirect to WhatsApp
+			window.location.href = whatsappUrl;
+
+			// Update on screen text (optional)
+			proposalText.textContent = `Yay! See you on ${formattedDate}! ❤️`;
+			calendarContainer.classList.add('hidden');
+		} else {
+			alert('Please select a date first!');
+		}
 	});
-
-	// Confirm date selection
-	if (datePicker.value) {
-		const selectedDate = new Date(datePicker.value);
-		const options = {
-			weekday: 'long',
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric',
-		};
-		const formattedDate = selectedDate.toLocaleDateString('en-US', options);
-
-		proposalText.textContent = `Yay! See you on ${formattedDate}! ❤️`;
-		calendarContainer.classList.add('hidden');
-
-		// WhatsApp number (no "+" or special characters)
-		const phoneNumber = '1234567890';
-
-		// Message to send
-		const message = encodeURIComponent(
-			`Hey! Let's go on a date on ${formattedDate} 💖`
-		);
-
-		// Open WhatsApp with message
-		window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-	} else {
-		alert('Please select a date first!');
-	}
 
 	// Utility: Move button to non-overlapping and visible random position
 	function moveButtonToSafePosition(button) {
