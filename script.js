@@ -81,10 +81,12 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	confirmDateBtn.addEventListener('click', function () {
-		if (datePicker.value) {
-			const selectedDate = new Date(datePicker.value);
+		const selectedDateValue = datePicker.value;
+		const food = document.getElementById('food-choice').value;
+		const activity = document.getElementById('activity-choice').value;
 
-			// Format as DD.MM.YYYY
+		if (selectedDateValue) {
+			const selectedDate = new Date(selectedDateValue);
 			const day = selectedDate.getDate().toString().padStart(2, '0');
 			const month = (selectedDate.getMonth() + 1)
 				.toString()
@@ -93,15 +95,13 @@ document.addEventListener('DOMContentLoaded', function () {
 			const formattedDate = `${day}.${month}.${year}`;
 
 			// WhatsApp message
-			const message = `Hey my love, I picked this date for us: ${formattedDate}`;
+			const message = `Hey my love, I picked this date for us: ${formattedDate} 💖\n\nLet's eat: ${food} 🍽️\nAnd do: ${activity} 🎉`;
 			const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
 				message
 			)}`;
 
-			// Redirect to WhatsApp
 			window.location.href = whatsappUrl;
 
-			// Update on screen text (optional)
 			proposalText.textContent = `Yay! See you on ${formattedDate}! ❤️`;
 			calendarContainer.classList.add('hidden');
 		} else {

@@ -101,19 +101,55 @@ body {
 	transform: scale(1.05);
 }
 
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(20px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+/* Dropdown Styling */
+select {
+	width: 100%;
+	padding: 0.8rem;
+	font-size: 1rem;
+	border: 2px solid #e91e63;
+	border-radius: 8px;
+	background-color: #fafafa;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: all 0.3s ease;
 }
 
-.hidden {
-	display: none !important;
+select:focus {
+	outline: none;
+	border-color: #e91e63;
+	box-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
+}
+
+/* Style for the activity selection and food options */
+label {
+	font-size: 1.1rem;
+	color: #333;
+	display: block;
+	text-align: center;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+	.proposal-text {
+		font-size: 2rem; /* Smaller text size for mobile */
+	}
+
+	.response-btn {
+		font-size: 1rem;
+		padding: 0.8rem 1.5rem; /* Smaller padding on mobile */
+	}
+
+	#accept-btn,
+	#decline-btn {
+		max-width: 90%; /* Full width buttons on small screens */
+	}
+
+	/* Adjust for smaller screens if needed */
+	#gifContainer iframe,
+	#gifContainer2 iframe {
+		width: 100%; /* Make GIFs responsive to screen width */
+		height: auto;
+	}
 }
 
 /* GIF Container Styles */
@@ -142,26 +178,17 @@ body {
 	height: 321px; /* Set specific height */
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-	.proposal-text {
-		font-size: 2rem; /* Smaller text size for mobile */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
 	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
 
-	.response-btn {
-		font-size: 1rem;
-		padding: 0.8rem 1.5rem; /* Smaller padding on mobile */
-	}
-
-	#accept-btn,
-	#decline-btn {
-		max-width: 90%; /* Full width buttons on small screens */
-	}
-
-	/* Adjust for smaller screens if needed */
-	#gifContainer iframe,
-	#gifContainer2 iframe {
-		width: 100%; /* Make GIFs responsive to screen width */
-		height: auto;
-	}
+.hidden {
+	display: none !important;
 }

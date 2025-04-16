@@ -9,11 +9,44 @@
 	<body>
 		<h1 class="proposal-text">Will you go on a date with me?</h1>
 		<div class="content-container">
+			<!-- Calendar and options section (Initially hidden) -->
 			<div id="calendar-container" class="hidden">
-				<h2>I'm so happy! Please select a date ❤️</h2>
-				<input type="date" id="date-picker" min="" />
-				<button id="confirm-date">Confirm Date</button>
+				<label for="date-picker">Pick a date:</label>
+				<input type="date" id="date-picker" />
+
+				<label for="food-choice">What should we eat? 🍽️</label>
+				<select id="food-choice">
+					<option value="Pizza">Pizza</option>
+					<option value="Sushi">Sushi</option>
+					<option value="Burgers">Burgers</option>
+					<option value="Pasta">Pasta</option>
+					<option value="Surprise me!">Surprise me!</option>
+					<option value="Tacos">Tacos</option>
+					<option value="Salad">Salad</option>
+					<option value="Steak">Steak</option>
+					<option value="Ice Cream">Ice Cream</option>
+				</select>
+
+				<label for="activity-choice">What should we do? 🎉</label>
+				<select id="activity-choice">
+					<option value="Movie night">Movie night</option>
+					<option value="Walk in the park">Walk in the park</option>
+					<option value="Mini golf">Mini golf</option>
+					<option value="Spa day">Spa day</option>
+					<option value="Cuddle and chill">Cuddle and chill</option>
+					<option value="Bowling">Bowling</option>
+					<option value="Beach day">Beach day</option>
+					<option value="Go to a museum">Go to a museum</option>
+					<option value="Amusement park">Amusement park</option>
+					<option value="Go-karting">Go-karting</option>
+					<option value="Escape room">Escape room</option>
+					<option value="Netflix and Chill 😏">Netflix and Chill 😏</option>
+				</select>
+
+				<button id="confirm-date">Confirm</button>
 			</div>
+
+			<!-- Initial yes/no buttons -->
 			<div id="initial-buttons" class="buttons-container">
 				<button id="accept-btn" class="response-btn">
 					Yes! Absolutely! ❤️
@@ -21,8 +54,12 @@
 				<button id="decline-btn" class="response-btn">No</button>
 			</div>
 		</div>
+
+		<!-- GIF Containers (Initially hidden) -->
 		<div id="gifContainer"></div>
 		<div id="gifContainer2"></div>
+
+		<!-- External scripts -->
 		<script src="config.js"></script>
 		<script src="script.js"></script>
 	</body>
